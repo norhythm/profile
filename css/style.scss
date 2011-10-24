@@ -1,0 +1,428 @@
+@charset "UTF-8";
+
+@mixin transition($prop, $duration, $time, $delay) {
+	-webkit-transition-property: $prop;
+	-webkit-transition-duration: $duration;
+	-webkit-transition-timing-function: $time;
+	-webkit-transition-delay: $delay;
+
+	-moz-transition-property: $prop;
+	-moz-transition-duration: $duration;
+	-moz-transition-timing-function: $time;
+	-moz-transition-delay: $delay;
+
+	-o-transition-property: $prop;
+	-o-transition-duration: $duration;
+	-o-transition-timing-function: $time;
+	-o-transition-delay: $delay;
+
+	-ms-transition-property: $prop;
+	-ms-transition-duration: $duration;
+	-ms-transition-timing-function: $time;
+	-ms-transition-delay: $delay;
+
+	transition-property: $prop;
+	transition-duration: $duration;
+	transition-timing-function: $time;
+	transition-delay: $delay;
+}
+
+@mixin bg($path, $x, $y, $rp) { 
+	background: url(../images/#{$path}) $x $y $rp;
+}
+
+$i: 1;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+ul,li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+img,img a,a img{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-style: none;
+	text-decoration: none;
+}
+
+object,embed {
+	vertical-align:　bottom;
+}
+
+a {
+	text-decoration: none;
+	color: #333333;
+	
+	&:hover {
+	}
+	
+	&:focus {
+		outline: none;
+		-moz-outline-style: none;
+	}
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	text-align: left;
+}
+
+div {
+	border-collapse: collapse;
+}
+
+input {
+	margin: 0;
+	padding: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+	
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}  
+
+body {
+	height: 100%;
+	background-color: #f5f5f5;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 0.65em;
+	font-weight: lighter;
+	line-height: 1em;
+}
+
+#container {
+	width: 960px;
+	margin: 0 auto;
+}
+	
+#nav {
+	width: 940px;
+	height: 50px;
+	margin: 0 20px 0 0;
+	padding: 15px 0 0 0;
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+	position: relative;
+}
+
+.block {
+	//float: left;
+	width: 960px;
+	margin: 0;
+	padding: 15px 0;
+	background-image: url(../img/dot.gif);
+	background-repeat: repeat-x;
+	overflow: hidden;
+
+	&:hover{
+		background-color: #eeeeee;
+	}
+
+	h2 {
+		float: left;
+		width: 130px;
+		margin: 0;
+		padding: 0 20px 0 10px;
+		font-size: 1.5em;
+		color: #555555;
+		font-family: "Times New Roman", Times, serif;
+	}
+
+	dl {
+		float: left;
+		width: 140px;
+		padding: 0 20px 5px 0;
+		position: relative;
+
+		dt {
+			clear: both;
+			margin: 3px 0 5px 0;
+			color: #444444;
+			font-weight: bold;
+		}
+		
+		dd {
+			clear: both;
+			color: #888888;
+		}
+	}
+}
+
+.listwrap {
+	float: left;
+	width: 800px;
+	margin: 15px 0 0 0;
+}
+
+#graphics {
+	padding: 0;
+	
+	h2 {
+		margin: 15px 0 0 0;
+	}
+	
+	dl {
+		
+		//@while $i < 6 {
+		//	&::nth-child(#{$i}) dt,
+		//	&::nth-child(5n+#{$i}) dt {
+		//		-webkit-animation-duration: 1.2s - 0.05 * ($i - 1);
+		//		-webkit-animation-name: dt-render;
+		//		-webkit-animation-iteration-count: 1;
+		//	}
+		//	$i: $i + 1;
+		//}
+		
+
+		dt {
+			clear: both;
+			width: 140px;
+			height: 140px;
+			margin: 3px 0 0 0;
+			padding: 0 0 12px 0;
+			position: relative;
+			z-index: 10;
+			overflow: hidden;
+			
+			a {
+			
+				img {
+					filter: alpha(opacity=100);
+					-moz-opacity: 1.0;
+					opacity: 1.0;
+					@include transition(opacity, 0.25s, linear, 0);
+				}
+			
+				&:hover {
+					
+					img {
+						filter: alpha(opacity=10);
+						-moz-opacity: 0.1;
+						opacity: 0.1;
+					}
+				}
+			}
+		}
+
+
+		dd {
+			margin: 3px 0 0 0;
+			padding: 0;
+			background-color: #333333;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 5;
+			overflow: hidden;
+			@include transition(width height, 0.1s, ease-in-out, 0);
+		}
+
+		&:hover {
+		
+			dd {
+				width: 140px;
+				height: 140px;
+			}
+		}
+				
+		p {
+			width: 120px;
+			color: #cccccc;
+			position: absolute;
+			top: 22px;
+			left: 10px;
+			line-height: 1.3em;
+		}
+			
+		.genre {
+			width: 135px;
+			height: 15px;
+			text-align: right;
+			position: absolute;
+			top: 5px;
+			left: 0;
+		}
+		
+		.color01 {
+			color: #34e0d2;
+		}
+		
+		.color02 {
+			color: #ff1599;
+		}
+	}
+}
+			
+#works {
+	padding: 0 0 15px 0;
+	
+	h2 {
+		margin: 15px 0 0 0;
+	}
+
+	dl {
+	
+		dt {
+			clear: both;
+			margin: 0;
+			padding: 3px 0 5px 0;
+		}
+
+		dd {
+			clear: both;
+			margin: 0;
+			padding: 0 0 14px 0;
+			background-image: url(../img/dot.gif);
+			background-repeat: repeat-x;
+			background-position: left bottom;
+		}
+	}
+}
+
+#archives,
+#about {
+
+	h2 {
+		margin: 15px 0 0 0;
+	}
+	
+	dl {
+	
+		dt {
+			clear: both;
+			margin: 0;
+			padding: 3px 0 5px 0;
+		}
+
+		dd {
+			clear: both;
+			margin: 0;
+			padding: 0 0 14px 0;
+		}
+	}
+			
+	a {
+		color: #454545;
+		padding: 1px 0 2px 0;
+		text-decoration: underline;
+
+		&:hover {
+			color: #ffffff;
+			background-color: #ff1493;
+		}
+	}
+}
+
+#footer {
+	width: 950px;
+	margin: 0 0 1em 0;
+	padding: 1em 0 1em 10px;
+	background-image: url(../img/dot.gif);
+	background-repeat: repeat-x;
+
+	a {
+		color: #454545;
+		padding: 1px 0 2px 0;
+		text-decoration: underline;
+
+		&:hover {
+			color: #ffffff;
+			background-color: #ff1493;
+		}
+	}
+}
+
+#facebox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	text-align: left;
+	
+	.popup {
+		position: relative;
+	}
+
+	table {
+		border-collapse: collapse;
+		
+		td {
+			border-bottom: 0;
+			padding: 0;
+		}
+	}
+
+	.loading {
+		text-align: center;
+	}
+
+	.image {
+		text-align: center;
+	}
+}
+
+#facebox_overlay {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.facebox_hide {
+	z-index: -100;
+}
+
+.facebox_overlayBG {
+	background-color: #333333;
+	z-index: 99;
+}
+
+* html #facebox_overlay { /* ie6 hack */
+	position: absolute;
+	height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');
+}
+
+
+.ie6 {
+
+	#graphics {
+	
+		dl {
+		
+			dd {
+				width: 140px;
+				height: 140px;
+			}
+		}
+	}
+	
+}
