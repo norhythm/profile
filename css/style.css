@@ -66,6 +66,8 @@ input {
 .clearfix::before, .clearfix::after {
   content: "";
   display: block;
+}
+.clearfix::after {
   clear: both;
 }
 

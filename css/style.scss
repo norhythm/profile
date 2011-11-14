@@ -106,6 +106,9 @@ input {
 	&::after {
 		content: "";
 		display: block;
+	}
+	
+	&::after {
 		clear: both;
 	}
 }  
