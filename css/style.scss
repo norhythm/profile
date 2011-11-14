@@ -32,6 +32,7 @@
 }
 
 $i: 1;
+$j: 1;
 
 * {
 	margin: 0;
@@ -59,7 +60,7 @@ img,img a,a img{
 }
 
 object,embed {
-	vertical-align:　bottom;
+	vertical-align: bottom;
 }
 
 a {
@@ -191,15 +192,15 @@ body {
 	
 	dl {
 		
-		//@while $i < 6 {
-		//	&::nth-child(#{$i}) dt,
-		//	&::nth-child(5n+#{$i}) dt {
-		//		-webkit-animation-duration: 1.2s - 0.05 * ($i - 1);
-		//		-webkit-animation-name: dt-render;
-		//		-webkit-animation-iteration-count: 1;
-		//	}
-		//	$i: $i + 1;
-		//}
+		@while $i < 6 {
+			&:nth-child(#{$i}) dt,
+			&:nth-child(5n+#{$i}) dt {
+				-webkit-animation-duration: 1.2s - 0.05 * ($i - 1);
+				-webkit-animation-name: dt-render;
+				-webkit-animation-iteration-count: 1;
+			}
+			$i: $i + 1;
+		}
 		
 
 		dt {
@@ -280,6 +281,29 @@ body {
 		}
 	}
 }
+
+@-webkit-keyframes dt-render {
+	0%{
+		width: 0;
+		height: 0;
+		padding: 0;
+	}
+	30%{
+		width: 30px;
+		height: 20px;
+		padding: 0;
+	}
+	70%{
+		width: 140px;
+		height: 20px;
+		padding: 0 0 12px 0;
+	}
+	100%{
+		width: 140px;
+		height: 140px;
+		padding: 0 0 12px 0;
+	}
+}
 			
 #works {
 	padding: 0 0 15px 0;
@@ -289,6 +313,18 @@ body {
 	}
 
 	dl {
+	
+		//@while $j < 6 {
+		//	&:nth-child(#{$j}),
+		//	&:nth-child(5n+#{$j}) {
+		//		-webkit-animation-duration: 1.2s - 0.05 * ($j - 1);
+		//		-webkit-animation-name: dl-render;
+		//		-webkit-animation-iteration-count: 1;
+		//	}
+		//	$j: $j + 1;
+		//}
+		
+		overflow: hidden;
 	
 		dt {
 			clear: both;
@@ -304,6 +340,15 @@ body {
 			background-repeat: repeat-x;
 			background-position: left bottom;
 		}
+	}
+}
+
+@-webkit-keyframes dl-render {
+	0%{
+		height: 0;
+	}
+	100%{
+		height: auto;
 	}
 }
 
