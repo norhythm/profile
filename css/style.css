@@ -60,14 +60,14 @@ input {
   clear: both;
 }
 
-.clearfix {
+.clearfix, #container, .block {
   zoom: 1;
 }
-.clearfix::before, .clearfix::after {
+.clearfix::before, #container::before, .block::before, .clearfix::after, #container::after, .block::after {
   content: "";
   display: block;
 }
-.clearfix::after {
+.clearfix::after, #container::after, .block::after {
   clear: both;
 }
 
@@ -85,38 +85,22 @@ body {
   margin: 0 auto;
 }
 
-#nav {
-  width: 940px;
-  height: 50px;
-  margin: 0 20px 0 0;
-  padding: 15px 0 0 0;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
-  position: relative;
-}
-
 .block {
-  width: 960px;
+  float: left;
+  width: 192px;
   margin: 0;
   padding: 15px 0;
   background-image: url(../img/dot.gif);
   background-repeat: repeat-x;
   overflow: hidden;
 }
-.block:hover {
-  background-color: #eeeeee;
-}
 .block h2 {
-  float: left;
-  width: 130px;
-  margin: 0;
-  padding: 0 20px 0 10px;
+  margin: 15px 0 0 0;
   font-size: 1.5em;
   color: #555555;
   font-family: "Times New Roman", Times, serif;
 }
 .block dl {
-  float: left;
   width: 140px;
   padding: 0 20px 5px 0;
   position: relative;
@@ -133,16 +117,11 @@ body {
 }
 
 .listwrap {
-  float: left;
-  width: 800px;
   margin: 15px 0 0 0;
 }
 
-#graphics {
+#graphics dl {
   padding: 0;
-}
-#graphics h2 {
-  margin: 15px 0 0 0;
 }
 #graphics dl:nth-child(1) dt, #graphics dl:nth-child(5n+1) dt {
   -webkit-animation-duration: 1.2s;
@@ -173,13 +152,28 @@ body {
   clear: both;
   width: 140px;
   height: 140px;
-  margin: 3px 0 0 0;
-  padding: 0 0 12px 0;
+  margin: 3px 0 5px 0;
+  padding: 0;
   position: relative;
   z-index: 10;
   overflow: hidden;
 }
+#graphics dl dt a {
+  display: block;
+  width: 140px;
+  height: 140px;
+}
 #graphics dl dt a img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-border-top-right-radius: 0% 0%;
+  -moz-border-top-right-radius: 0% 0%;
+  -o-border-top-right-radius: 0% 0%;
+  -ms-border-top-right-radius: 0% 0%;
+  border-top-right-radius: 0% 0%;
   filter: alpha(opacity=100);
   -moz-opacity: 1.0;
   opacity: 1.0;
@@ -210,12 +204,21 @@ body {
   opacity: 0.1;
 }
 #graphics dl dd {
-  margin: 3px 0 0 0;
   padding: 0;
   background-color: #333333;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-border-top-right-radius: 0% 0%;
+  -moz-border-top-right-radius: 0% 0%;
+  -o-border-top-right-radius: 0% 0%;
+  -ms-border-top-right-radius: 0% 0%;
+  border-top-right-radius: 0% 0%;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 5;
   overflow: hidden;
   -webkit-transition-property: width height;
@@ -247,7 +250,7 @@ body {
   width: 120px;
   color: #cccccc;
   position: absolute;
-  top: 22px;
+  top: 45px;
   left: 10px;
   line-height: 1.3em;
 }
@@ -270,34 +273,24 @@ body {
   0% {
     width: 0;
     height: 0;
-    padding: 0;
   }
 
   30% {
     width: 30px;
     height: 20px;
-    padding: 0;
   }
 
   70% {
     width: 140px;
     height: 20px;
-    padding: 0 0 12px 0;
   }
 
   100% {
     width: 140px;
     height: 140px;
-    padding: 0 0 12px 0;
   }
 }
 
-#works {
-  padding: 0 0 15px 0;
-}
-#works h2 {
-  margin: 15px 0 0 0;
-}
 #works dl {
   overflow: hidden;
 }
@@ -325,10 +318,6 @@ body {
   }
 }
 
-#archives h2,
-#about h2 {
-  margin: 15px 0 0 0;
-}
 #archives dl dt,
 #about dl dt {
   clear: both;
@@ -346,6 +335,26 @@ body {
   color: #454545;
   padding: 1px 0 2px 0;
   text-decoration: underline;
+  -webkit-transition-property: color background;
+  -webkit-transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease;
+  -webkit-transition-delay: 0;
+  -moz-transition-property: color background;
+  -moz-transition-duration: 0.1s;
+  -moz-transition-timing-function: ease;
+  -moz-transition-delay: 0;
+  -o-transition-property: color background;
+  -o-transition-duration: 0.1s;
+  -o-transition-timing-function: ease;
+  -o-transition-delay: 0;
+  -ms-transition-property: color background;
+  -ms-transition-duration: 0.1s;
+  -ms-transition-timing-function: ease;
+  -ms-transition-delay: 0;
+  transition-property: color background;
+  transition-duration: 0.1s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 #archives a:hover,
 #about a:hover {
@@ -355,7 +364,7 @@ body {
 
 #footer {
   width: 950px;
-  margin: 0 0 1em 0;
+  margin: 0 auto 1em auto;
   padding: 1em 0 1em 10px;
   background-image: url(../img/dot.gif);
   background-repeat: repeat-x;
@@ -364,6 +373,26 @@ body {
   color: #454545;
   padding: 1px 0 2px 0;
   text-decoration: underline;
+  -webkit-transition-property: color background;
+  -webkit-transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease;
+  -webkit-transition-delay: 0;
+  -moz-transition-property: color background;
+  -moz-transition-duration: 0.1s;
+  -moz-transition-timing-function: ease;
+  -moz-transition-delay: 0;
+  -o-transition-property: color background;
+  -o-transition-duration: 0.1s;
+  -o-transition-timing-function: ease;
+  -o-transition-delay: 0;
+  -ms-transition-property: color background;
+  -ms-transition-duration: 0.1s;
+  -ms-transition-timing-function: ease;
+  -ms-transition-delay: 0;
+  transition-property: color background;
+  transition-duration: 0.1s;
+  transition-timing-function: ease;
+  transition-delay: 0;
 }
 #footer a:hover {
   color: #ffffff;
