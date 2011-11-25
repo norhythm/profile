@@ -99,6 +99,7 @@ body {
   font-size: 1.5em;
   color: #555555;
   font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
 }
 .block dl {
   width: 140px;
@@ -109,7 +110,6 @@ body {
   clear: both;
   margin: 3px 0 5px 0;
   color: #444444;
-  font-weight: bold;
 }
 .block dl dd {
   clear: both;
