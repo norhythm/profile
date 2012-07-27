@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import "reset";
+
+$headColor: #60ce24;
+
+body {
+	font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", Helvetica, Arial, sans-serif;
+	font-size: 5em;
+}
+
+a {
+	color: #ce22b8;
+}
+
+#container {
+	width: 980px;
+	margin: 0 auto;
+}
+
+.texture {
+	width: 100%;
+	height: 100%;
+	background-image: url(../images/bg_tex.gif);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+h1 {
+	color: $headColor;
+	text-transform: uppercase;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing: -2px;
+	position: relative;
+	
+	span {
+		@extend .texture;
+	}
+}
+
+.nav {
+	text-transform: uppercase;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	
+	a {
+		position: relative;
+		
+		span {
+			@extend .texture;
+		}
+	}
+}
